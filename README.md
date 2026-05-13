@@ -14,7 +14,7 @@ This project visualizes real-time or simulated DNS/cyberattack activity on a 3D 
 ## Requirements
 
 - Python 3.x
-- Blender (for model creation)
+- Blender (for model creation)git add .
 - Web browser with WebGL support
 
 ## Installation
