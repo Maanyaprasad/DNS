@@ -1,15 +1,157 @@
+
 body {
     margin: 0;
     overflow: hidden;
     background: black;
+    font-family: monospace;
 }
 
 #info {
     position: absolute;
-    top: 20px;
+    top: 10px;
     width: 100%;
     text-align: center;
-    color: white;
-    font-size: 24px;
-    z-index: 10;
+    color: #00ff00;
+    font-size: 16px;
+    font-family: monospace;
+    letter-spacing: 2px;
+    z-index: 100;
+    pointer-events: none;
+}
+
+#debug {
+    position: absolute;
+    bottom: 10px;
+    left: 250px; /* shifted right so it doesn't overlap panel */
+    color: #00ff00;
+    font-family: monospace;
+    font-size: 11px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 8px;
+    border-radius: 5px;
+    max-width: 380px;
+    max-height: 180px;
+    overflow-y: auto;
+    z-index: 100;
+}
+
+
+#left-panel {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 230px;
+    bottom: 10px;
+    background: rgba(0, 10, 25, 0.85);
+    border-right: 1px solid rgba(0, 200, 255, 0.2);
+    padding: 10px;
+    overflow-y: auto;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.panel-title {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #00ccff;
+    border-bottom: 1px solid rgba(0,200,255,0.2);
+    padding-bottom: 5px;
+    margin-bottom: 4px;
+}
+
+
+.attack-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    padding: 6px 5px;
+    border-left: 2px solid transparent;
+    border-radius: 3px;
+    background: rgba(255,255,255,0.02);
+    animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-6px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+.attack-item.sev-low      { border-color: #00ff88; }
+.attack-item.sev-medium   { border-color: #ffaa00; }
+.attack-item.sev-high     { border-color: #ff4400; }
+.attack-item.sev-critical { border-color: #ff0055; background: rgba(255,0,85,0.05); }
+
+.sev-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+.sev-low      .sev-dot { background: #00ff88; }
+.sev-medium   .sev-dot { background: #ffaa00; }
+.sev-high     .sev-dot { background: #ff4400; }
+.sev-critical .sev-dot { background: #ff0055; }
+
+.attack-route {
+    font-size: 11px;
+    color: #cceeff;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.attack-meta {
+    font-size: 9px;
+    color: #446677;
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.top-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: #aabbcc;
+    padding: 3px 0;
+    border-bottom: 1px solid rgba(0,180,255,0.05);
+}
+.top-count {
+    color: #00ccff;
+    font-weight: bold;
+}
+
+#legend {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 24px;
+    background: rgba(0, 10, 25, 0.85);
+    border: 1px solid rgba(0, 200, 255, 0.2);
+    padding: 10px 24px;
+    border-radius: 30px;
+    z-index: 100;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    color: #aaccdd;
+    font-family: monospace;
+    letter-spacing: 1px;
+}
+
+.legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
 }
