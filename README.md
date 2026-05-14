@@ -26,14 +26,16 @@ This project visualizes real-time or simulated DNS/cyberattack activity on a 3D 
 pip install flask flask-socketio requests
 ```
 
+
 ## Usage
 
 1. Run the server:
-   ```bash
-   python server.py
+
+```bash
+python server.py
 ```
 
-2. Open index.html in your web browser.
+2. Open `index.html` in your web browser.
 
 3. The system displays animated real-time/simulated DNS attack activity on the 3D globe.
 
